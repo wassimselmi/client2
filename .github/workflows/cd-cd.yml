@@ -18,10 +18,10 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/cicd-demo:latest .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/client-2:latest .
 
       - name: Push Docker image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/cicd-demo:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/client-2:latest
 
 
       - name: Wait for Azure readiness
@@ -32,4 +32,4 @@ jobs:
         with:
           app-name: 'docker-app'
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-          images: ${{ secrets.DOCKER_USERNAME }}/cicd-demo:latest
+          images: ${{ secrets.DOCKER_USERNAME }}/client-2:latest
