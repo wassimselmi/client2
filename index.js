@@ -6,7 +6,7 @@ app.get('/', (req, res) => {
   res.send('Plant Project is under maintenance 🛠️');
 });
 
-app.get('/test', (req, res) => {
+app.get('/plants', (req, res) => {
   res.send('more plants to come! 🛠️');
 });
 
